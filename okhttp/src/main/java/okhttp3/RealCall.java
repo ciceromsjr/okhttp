@@ -80,6 +80,7 @@ final class RealCall implements Call {
 
   @Override public void cancel() {
     retryAndFollowUpInterceptor.cancel();
+    client.dispatcher().cancelAll();
   }
 
   @Override public synchronized boolean isExecuted() {
